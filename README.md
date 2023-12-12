@@ -8,3 +8,12 @@ Through trials and challenges, Hiro embarks on a quest to master the way of the 
 
 End:
 As Hiro reaches the pinnacle of his training, the sinister forces of Lord Kuroshi launch a massive assault on Akarui. Leading his fellow samurai, Hiro confronts the malevolent warlord in a fierce battle. Through skillful swordplay and unwavering resolve, Hiro defeats Lord Kuroshi, restoring peace to the village. The people of Akarui celebrate Hiro as a hero, and the Samurai Council acknowledges his valor and bravery, recognizing him as a true embodiment of the samurai's code – the Blade of Honor. With tranquility restored, Hiro continues his journey, ever vigilant, to protect the land and its people.
+
+
+### Assets links
+
+- https://assetstore.unity.com/packages/2d/environments/pixel-art-platformer-village-props-166114
+- https://assetstore.unity.com/packages/2d/characters/martial-hero-170422#publisher
+- https://assetstore.unity.com/packages/2d/characters/bringer-of-death-free-195719
+- https://assetstore.unity.com/packages/2d/characters/evil-wizard-168007
+- https://assetstore.unity.com/packages/2d/characters/bandits-pixel-art-104130
