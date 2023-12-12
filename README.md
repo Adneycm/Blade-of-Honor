@@ -10,6 +10,13 @@ End:
 As Hiro reaches the pinnacle of his training, the sinister forces of Lord Kuroshi launch a massive assault on Akarui. Leading his fellow samurai, Hiro confronts the malevolent warlord in a fierce battle. Through skillful swordplay and unwavering resolve, Hiro defeats Lord Kuroshi, restoring peace to the village. The people of Akarui celebrate Hiro as a hero, and the Samurai Council acknowledges his valor and bravery, recognizing him as a true embodiment of the samurai's code – the Blade of Honor. With tranquility restored, Hiro continues his journey, ever vigilant, to protect the land and its people.
 
 
+- Rectitude (義, Gi): "In the heart of a true samurai lies the principle of rectitude. Upholding righteousness in all actions, one cultivates honor and integrity. Gi guides the blade and the spirit, shaping the noble path of the warrior."
+
+- Courage (勇, Yuu): "Amidst adversity, courage blazes brightly within the soul of a samurai. Fearlessly facing challenges, a warrior stands unwavering, embracing valor and fortitude. With courage, one forges through darkness to find the light."
+
+- Benevolence (仁, Jin): "The essence of a samurai resonates with benevolence. Embracing compassion and empathy, one extends kindness to all. Through acts of mercy and understanding, the warrior's strength lies not only in skill but in a benevolent heart."
+
+
 ### Assets links
 
 - https://assetstore.unity.com/packages/2d/environments/pixel-art-platformer-village-props-166114

@@ -10,10 +10,9 @@ public class PlayerScript : MonoBehaviour
     private Animator playerAnimation;
 
     [SerializeField] private LayerMask ground;
-    [SerializeField] private float playerVerticalStrength;
-    [SerializeField] private float playerHorizontalStrength;
+    [SerializeField] private float playerVerticalStrength = 14;
+    [SerializeField] private float playerHorizontalStrength = 10;
     [SerializeField] private float playerHorizontalVelocity = 0f;
-    private bool playerIsAlive = true;
     private enum playerStateEnum { idle, run, jump, fall, attack1, attack2 }
 
 
@@ -33,7 +32,7 @@ public class PlayerScript : MonoBehaviour
         playerRigidbody.velocity = new Vector2(playerHorizontalVelocity * playerHorizontalStrength, playerRigidbody.velocity.y);
 
 
-        if (Input.GetButtonDown("Jump") && playerIsAlive && IsGrounded())
+        if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, playerVerticalStrength);
         }
