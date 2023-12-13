@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -10,6 +11,11 @@ public class PlayerScript : MonoBehaviour
     private Animator playerAnimation;
 
     [SerializeField] private LayerMask ground;
+    [SerializeField] private LayerMask enemy;
+    [SerializeField] private Transform playerAttackPoint;
+    [SerializeField] private int playerDamageAttack1 = 20;
+    [SerializeField] private int playerDamageAttack2 = 30;
+    [SerializeField] private float playerAttackRange = 0.5f;
     [SerializeField] private float playerVerticalStrength = 14;
     [SerializeField] private float playerHorizontalStrength = 10;
     [SerializeField] private float playerHorizontalVelocity = 0f;
@@ -39,6 +45,24 @@ public class PlayerScript : MonoBehaviour
 
     }
 
+    private void PlayerAttack(int damage)
+    {
+        Collider2D[] hittedEnemies = Physics2D.OverlapCircleAll(playerAttackPoint.position, playerAttackRange, enemy);
+        foreach(Collider2D enemy in hittedEnemies)
+        {
+            enemy.GetComponent<HealthScript>().TakeHit(damage);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (playerAttackPoint == null)
+        {
+            return;
+        }
+        Gizmos.DrawWireSphere(playerAttackPoint.position, playerAttackRange);
+    }
+
     private void PlayerAnimation()
     {
         playerStateEnum playerState;
@@ -63,10 +87,12 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown("mouse 0"))
         {
             playerState = playerStateEnum.attack1;
+            PlayerAttack(playerDamageAttack1);
         } 
         else if (Input.GetKeyDown("mouse 1")) 
         {
             playerState = playerStateEnum.attack2;
+            PlayerAttack(playerDamageAttack2);
         }
 
         // Check if the player is jumping or falling based on it's vertical velocity

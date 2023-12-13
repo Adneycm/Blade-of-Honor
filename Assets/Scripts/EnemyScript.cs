@@ -11,6 +11,7 @@ public class EnemyScript : MonoBehaviour
     private Animator enemyAnimation;
 
     private float distanceToPlayer;
+    private HealthScript healthScript;
     [SerializeField] private GameObject player;
     [SerializeField] private LayerMask ground;
     [SerializeField] private float minimumAttackDistance = 4f;
@@ -24,18 +25,22 @@ public class EnemyScript : MonoBehaviour
         enemyBoxCollider = GetComponent<BoxCollider2D>();
         enemySprite = GetComponent<SpriteRenderer>();
         enemyAnimation = GetComponent<Animator>();
+        healthScript = GetComponent<HealthScript>();
     }
 
     void Update()
     {
-        distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-        FollowPlayer();
-        EnemyAnimation();
+        if (healthScript.checkHealth())
+        {
+            distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+            FollowPlayer();
+            EnemyAnimation();
+        }
     }
 
     private void FollowPlayer()
     {
-        // Check if player is in reach to follow
+        // Check if player is in reach to follow and if the enemy is alive
         if (Mathf.Abs(distanceToPlayer) < minimumFollowDistance)
         {
             transform.position = Vector2.MoveTowards(
