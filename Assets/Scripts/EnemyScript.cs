@@ -9,9 +9,11 @@ public class EnemyScript : MonoBehaviour
     private BoxCollider2D enemyBoxCollider;
     private SpriteRenderer enemySprite;
     private Animator enemyAnimation;
+    private HealthScript healthScript;
 
     private float distanceToPlayer;
-    private HealthScript healthScript;
+    private float timer = 0f;
+    [SerializeField] private float enemyAttackRate = 2f;
     [SerializeField] private GameObject player;
     [SerializeField] private LayerMask ground;
     [SerializeField] private float minimumAttackDistance = 4f;
@@ -70,9 +72,10 @@ public class EnemyScript : MonoBehaviour
         }
 
         // Check if the enemy made an attack by checking if it is closer enough to the player
-        if (distanceToPlayer <= minimumAttackDistance)
+        if (distanceToPlayer <= minimumAttackDistance && Time.time >= timer)
         {
             enemyState = enemyStateEnum.attack;
+            timer = Time.time + 1f / enemyAttackRate;
         }
 
         // Set the state of the player to the animator
