@@ -16,7 +16,6 @@ public class PlayerScript : MonoBehaviour
     private enum playerStateEnum { idle, run, jump, fall, attack1, attack2 }
 
 
-    // Start is called before the first frame update
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
@@ -25,7 +24,6 @@ public class PlayerScript : MonoBehaviour
         playerAnimation = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         playerHorizontalVelocity = Input.GetAxisRaw("Horizontal");

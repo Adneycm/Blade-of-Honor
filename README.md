@@ -24,3 +24,10 @@ As Hiro reaches the pinnacle of his training, the sinister forces of Lord Kurosh
 - https://assetstore.unity.com/packages/2d/characters/bringer-of-death-free-195719
 - https://assetstore.unity.com/packages/2d/characters/evil-wizard-168007
 - https://assetstore.unity.com/packages/2d/characters/bandits-pixel-art-104130
+
+Sounds:
+
+- https://www.jamendo.com/community/ambient/tracks
+- https://freesound.org/search/?q=japan&f=&w=&tm=0&s=Automatic+by+relevance&advanced=0&g=1&only_p=&cm=0&page=3#sound
+- https://www.zapsplat.com/sound-effect-category/forest-and-jungle-ambiences/
+- https://pixabay.com/sound-effects/search/beach/
