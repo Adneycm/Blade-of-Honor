@@ -9,16 +9,28 @@ public class PlayerScript : MonoBehaviour
     private BoxCollider2D playerBoxCollider;
     private SpriteRenderer playerSprite;
     private Animator playerAnimation;
+    private HealthScript healthScript;
 
-    [SerializeField] private LayerMask ground;
-    [SerializeField] private LayerMask enemy;
+    private EnemyScript enemyScript;
+
+    // Layers
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask enemyLayer;
+    // Player Attack
+    private float playerAttackPointX;
     [SerializeField] private Transform playerAttackPoint;
     [SerializeField] private int playerDamageAttack1 = 20;
     [SerializeField] private int playerDamageAttack2 = 30;
     [SerializeField] private float playerAttackRange = 0.5f;
+    // Player Movement
     [SerializeField] private float playerVerticalStrength = 14;
     [SerializeField] private float playerHorizontalStrength = 10;
     [SerializeField] private float playerHorizontalVelocity = 0f;
+    // Knock Back
+    public float playerKnockBackForce = 6;
+    public float playerKnockBackCounter = 0;
+    public float playerKnockBackTotalTime = 0.2f;
+    public bool playerKnockBackDirection; // true -> right | false -> left
     private enum playerStateEnum { idle, run, jump, fall, attack1, attack2 }
 
 
@@ -28,39 +40,63 @@ public class PlayerScript : MonoBehaviour
         playerBoxCollider = GetComponent<BoxCollider2D>();
         playerSprite = GetComponent<SpriteRenderer>();
         playerAnimation = GetComponent<Animator>();
+        healthScript = GetComponent<HealthScript>();
+        playerAttackPointX = Mathf.Abs(playerAttackPoint.position.x - transform.position.x);
     }
 
     void Update()
     {
-        playerHorizontalVelocity = Input.GetAxisRaw("Horizontal");
-        playerRigidbody.velocity = new Vector2(playerHorizontalVelocity * playerHorizontalStrength, playerRigidbody.velocity.y);
+        if (healthScript.checkHealth())
+        {
+            PlayerMovement();
+            PlayerAnimation();
+        }
+    }
 
+    private void PlayerMovement()
+    {
+        if (playerKnockBackCounter < 0)
+        {
+            playerHorizontalVelocity = Input.GetAxisRaw("Horizontal");
+            playerRigidbody.velocity = new Vector2(playerHorizontalVelocity * playerHorizontalStrength, playerRigidbody.velocity.y);
+        }
+        else
+        {
+            if (playerKnockBackDirection == true)
+            {
+                playerRigidbody.velocity = new Vector2(-playerKnockBackForce, playerKnockBackForce);
+            }
+            if (playerKnockBackDirection == false)
+            {
+                playerRigidbody.velocity = new Vector2(playerKnockBackForce, playerKnockBackForce);
+            }
+            playerKnockBackCounter -= Time.deltaTime;
+        }
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, playerVerticalStrength);
         }
-
-        PlayerAnimation();
-
     }
 
     private void PlayerAttack(int damage)
     {
-        Collider2D[] hittedEnemies = Physics2D.OverlapCircleAll(playerAttackPoint.position, playerAttackRange, enemy);
+        Collider2D[] hittedEnemies = Physics2D.OverlapCircleAll(playerAttackPoint.position, playerAttackRange, enemyLayer);
         foreach(Collider2D enemy in hittedEnemies)
         {
             enemy.GetComponent<HealthScript>().TakeHit(damage);
+            enemyScript = enemy.GetComponent<EnemyScript>();
+            enemyScript.enemyKnockBackCounter = enemyScript.enemyKnockBackTotalTime;
+            if (enemy.transform.position.x <= transform.position.x)
+            {
+                enemyScript.enemyKnockBackDirection = true;
+            }
+            if (enemy.transform.position.x >= transform.position.x)
+            {
+                enemyScript.enemyKnockBackDirection = false;
+            }
+            //enemy.GetComponent<HealthScript>().TakeHit(damage);
         }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (playerAttackPoint == null)
-        {
-            return;
-        }
-        Gizmos.DrawWireSphere(playerAttackPoint.position, playerAttackRange);
     }
 
     private void PlayerAnimation()
@@ -72,11 +108,13 @@ public class PlayerScript : MonoBehaviour
         {
             playerState = playerStateEnum.run;
             playerSprite.flipX = false;
+            playerAttackPoint.position = new Vector2(transform.position.x + playerAttackPointX, transform.position.y);
         }
         else if (playerHorizontalVelocity < 0f)
         {
             playerState = playerStateEnum.run;
             playerSprite.flipX = true;
+            playerAttackPoint.position = new Vector2(transform.position.x - playerAttackPointX, transform.position.y);
         }
         else
         {
@@ -109,8 +147,17 @@ public class PlayerScript : MonoBehaviour
         playerAnimation.SetInteger("playerState", (int)playerState);
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        if (playerAttackPoint == null)
+        {
+            return;
+        }
+        Gizmos.DrawWireSphere(playerAttackPoint.position, playerAttackRange);
+    }
+
     private bool IsGrounded()
     {
-        return Physics2D.BoxCast(playerBoxCollider.bounds.center, playerBoxCollider.bounds.size, 0f, Vector2.down, .1f, ground);
+        return Physics2D.BoxCast(playerBoxCollider.bounds.center, playerBoxCollider.bounds.size, 0f, Vector2.down, .1f, groundLayer);
     }
 }
