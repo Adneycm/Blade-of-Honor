@@ -8,6 +8,7 @@ public class HealthScript : MonoBehaviour
     private Animator myAnimation;
     private BoxCollider2D myBoxCollider;
 
+    [SerializeField] private LayerMask groundLayer;
     [SerializeField] private int maxHealth = 100;
     private bool isAlive = true;
     private int currentHealth;
@@ -28,7 +29,7 @@ public class HealthScript : MonoBehaviour
         // Play hit animation of the caracter
         myAnimation.SetTrigger("Hit");
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && IsGrounded())
         {
             Die();
         }
@@ -45,5 +46,10 @@ public class HealthScript : MonoBehaviour
     public bool checkHealth()
     {
         return isAlive;
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.BoxCast(myBoxCollider.bounds.center, myBoxCollider.bounds.size, 0f, Vector2.down, .1f, groundLayer);
     }
 }
