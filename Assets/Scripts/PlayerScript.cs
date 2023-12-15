@@ -27,7 +27,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float playerHorizontalStrength = 10;
     [SerializeField] private float playerHorizontalVelocity = 0f;
     // Knock Back
-    public float playerKnockBackForce = 6;
+    public float playerKnockBackForce = 4;
     public float playerKnockBackCounter = 0;
     public float playerKnockBackTotalTime = 0.2f;
     public bool playerKnockBackDirection; // true -> right | false -> left

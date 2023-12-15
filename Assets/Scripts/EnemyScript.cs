@@ -26,14 +26,15 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float enemyAttackRate = 2f;
     [SerializeField] private float minimumAttackDistance = 4f;
     // Enemy Movement
+    [SerializeField] private bool enemySpriteFlipped = false;
     [SerializeField] private float minimumFollowDistance = 12;
     [SerializeField] private float enemyHorizontalDrag = 1;
     // Knock Back
-    public float enemyKnockBackForce = 6;
+    public float enemyKnockBackForce = 4;
     public float enemyKnockBackCounter = 0;
     public float enemyKnockBackTotalTime = 0.2f;
     public bool enemyKnockBackDirection; // true -> right | false -> left
-    private enum enemyStateEnum { idle, run, attack, takehit }
+    private enum enemyStateEnum { idle, run, attack }
 
     void Start()
     {
@@ -114,13 +115,20 @@ public class EnemyScript : MonoBehaviour
         if (transform.position.x > player.transform.position.x && Mathf.Abs(distanceToPlayer) < minimumFollowDistance)
         {
             enemyState = enemyStateEnum.run;
-            enemySprite.flipX = false;
+            if (enemySpriteFlipped)
+            {
+                enemySprite.flipX = true;
+            } else { enemySprite.flipX = false; }
             enemyAttackPoint.position = new Vector2(transform.position.x - enemyAttackPointX, transform.position.y);
         }
         else if (transform.position.x < player.transform.position.x && Mathf.Abs(distanceToPlayer) < minimumFollowDistance)
         {
             enemyState = enemyStateEnum.run;
-            enemySprite.flipX = true;
+            if (enemySpriteFlipped)
+            {
+                enemySprite.flipX = false;
+            }
+            else { enemySprite.flipX = true; }
             enemyAttackPoint.position = new Vector2(transform.position.x + enemyAttackPointX, transform.position.y);
         }
         else

@@ -23,11 +23,14 @@ public class HealthScript : MonoBehaviour
 
     public void TakeHit(int damage)
     {
-        // Subtract the damage from the current health of the caracter
-        currentHealth = currentHealth - damage;
+        if (isAlive)
+        {
+            // Subtract the damage from the current health of the caracter
+            currentHealth = currentHealth - damage;
 
-        // Play hit animation of the caracter
-        myAnimation.SetTrigger("Hit");
+            // Play hit animation of the caracter
+            myAnimation.SetTrigger("Hit");
+        }
 
         if (currentHealth <= 0 && IsGrounded())
         {
@@ -37,6 +40,7 @@ public class HealthScript : MonoBehaviour
 
     private void Die()
     {
+       
         myRigidbody.bodyType = RigidbodyType2D.Static;
         myBoxCollider.enabled = false;
         myAnimation.SetTrigger("Death");
