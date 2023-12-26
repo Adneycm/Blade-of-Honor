@@ -60,7 +60,10 @@ public class EnemyScript : MonoBehaviour
     {
         if (enemyKnockBackCounter < 0)
         {
-            FollowPlayer();
+            if (!enemyAnimation.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+            {
+                FollowPlayer();
+            }
         }
         else
         {

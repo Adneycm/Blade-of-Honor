@@ -57,8 +57,14 @@ public class PlayerScript : MonoBehaviour
     {
         if (playerKnockBackCounter < 0)
         {
-            playerHorizontalVelocity = Input.GetAxisRaw("Horizontal");
-            playerRigidbody.velocity = new Vector2(playerHorizontalVelocity * playerHorizontalStrength, playerRigidbody.velocity.y);
+            if (!playerAnimation.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+            {
+                playerHorizontalVelocity = Input.GetAxisRaw("Horizontal");
+                playerRigidbody.velocity = new Vector2(playerHorizontalVelocity * playerHorizontalStrength, playerRigidbody.velocity.y);
+            } else
+            {
+                playerRigidbody.velocity = new Vector2(0, playerRigidbody.velocity.y);
+            }
         }
         else
         {
