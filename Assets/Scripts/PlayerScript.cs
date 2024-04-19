@@ -33,7 +33,12 @@ public class PlayerScript : MonoBehaviour
     public bool playerKnockBackDirection; // true -> right | false -> left
     private enum playerStateEnum { idle, run, jump, fall, attack1, attack2 }
 
-
+    AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+    
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
@@ -82,6 +87,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, playerVerticalStrength);
+            audioManager.PlayAtackSound(audioManager.jumpSound);
         }
     }
 
@@ -93,6 +99,7 @@ public class PlayerScript : MonoBehaviour
             enemy.GetComponent<HealthScript>().TakeHit(damage);
             enemyScript = enemy.GetComponent<EnemyScript>();
             enemyScript.enemyKnockBackCounter = enemyScript.enemyKnockBackTotalTime;
+            
             if (enemy.transform.position.x <= transform.position.x)
             {
                 enemyScript.enemyKnockBackDirection = true;
@@ -132,11 +139,13 @@ public class PlayerScript : MonoBehaviour
         {
             playerState = playerStateEnum.attack1;
             PlayerAttack(playerDamageAttack1);
+            audioManager.PlayAtackSound(audioManager.atackSound1);
         } 
         else if (Input.GetKeyDown("mouse 1")) 
         {
             playerState = playerStateEnum.attack2;
             PlayerAttack(playerDamageAttack2);
+            audioManager.PlayAtackSound(audioManager.atackSound2);
         }
 
         // Check if the player is jumping or falling based on it's vertical velocity
