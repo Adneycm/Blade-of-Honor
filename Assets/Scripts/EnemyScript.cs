@@ -119,9 +119,16 @@ public class EnemyScript : MonoBehaviour
     {
         enemyStateEnum enemyState;
 
-        
+        // Check if the enemy made an attack by checking if it is closer enough to the player
+        if (distanceToPlayer <= minimumAttackDistance && Time.time >= enemyAttackTimer)
+        {
+            enemyState = enemyStateEnum.attack;
+            enemyAttackTimer = Time.time + 1f / enemyAttackRate;
+            EnemyAttack();
+        }
+
         // Check if the enemy is running (backwards or front) or stopped based on it's horizontal velocity
-        if (transform.position.x > player.transform.position.x && Mathf.Abs(distanceToPlayer) < minimumFollowDistance)
+        else if (transform.position.x > player.transform.position.x && Mathf.Abs(distanceToPlayer) < minimumFollowDistance)
         {
             enemyState = enemyStateEnum.run;
             if (enemySpriteFlipped)
@@ -145,13 +152,6 @@ public class EnemyScript : MonoBehaviour
             enemyState = enemyStateEnum.idle;
         }
 
-        // Check if the enemy made an attack by checking if it is closer enough to the player
-        if (distanceToPlayer <= minimumAttackDistance && Time.time >= enemyAttackTimer)
-        {
-            enemyState = enemyStateEnum.attack;
-            enemyAttackTimer = Time.time + 1f / enemyAttackRate;
-            EnemyAttack();
-        }
 
         // Set the state of the player to the animator
         enemyAnimation.SetInteger("enemyState", (int)enemyState);
