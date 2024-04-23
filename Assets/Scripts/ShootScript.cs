@@ -8,9 +8,16 @@ public class ShootScript : MonoBehaviour
 
     [SerializeField] private GameObject arrow;
     [SerializeField] private Transform arrowPosition;
+    private EnemyScript enemyScript;
 
     private float timer;
-    // Update is called once per frame
+
+
+    void Start()
+    {
+        enemyScript = GetComponent<EnemyScript>();
+    }
+
     void Update()
     {
         timer += Time.deltaTime;
@@ -24,6 +31,10 @@ public class ShootScript : MonoBehaviour
 
     private void shoot()
     {
-        Instantiate(arrow, arrowPosition.position, Quaternion.identity);
+        if (enemyScript.checkHealth())
+        {
+            Instantiate(arrow, arrowPosition.position, Quaternion.identity);
+        }
+            
     }
 }
