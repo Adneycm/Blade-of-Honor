@@ -35,7 +35,12 @@ public class EnemyScript : MonoBehaviour
     public float enemyKnockBackTotalTime = 0.2f;
     public bool enemyKnockBackDirection; // true -> right | false -> left
     private enum enemyStateEnum { idle, run, attack }
+    AudioManager audioManager;
 
+
+    private void Awake(){
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start()
     {
         enemyRigidbody = GetComponent<Rigidbody2D>();
@@ -94,6 +99,7 @@ public class EnemyScript : MonoBehaviour
             {
                 playerScript.playerKnockBackDirection = false;
             }
+            audioManager.PlayAtackSound(audioManager.damageSound);
             player.GetComponent<HealthScript>().TakeHit(enemyDamageAttack);
             
         }
