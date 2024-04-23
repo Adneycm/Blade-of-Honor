@@ -232,12 +232,13 @@ MonoBehaviour:
     m_Bits: 256
   enemyAttackPoint: {fileID: 7231987727186387377}
   enemyDamageAttack: 20
-  enemyAttackRange: 1.2
+  enemyAttackRange: 1
   enemyAttackRate: 2
   minimumAttackDistance: 4
-  minimumFollowDistance: 12
+  enemySpriteFlipped: 0
+  minimumFollowDistance: 5
   enemyHorizontalDrag: 1.5
-  enemyKnockBackForce: 6
+  enemyKnockBackForce: 4
   enemyKnockBackCounter: 0
   enemyKnockBackTotalTime: 0.2
   enemyKnockBackDirection: 0
@@ -253,4 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c34b46a2657cc44a7c8430857b23bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   maxHealth: 100
