@@ -166,4 +166,8 @@ public class EnemyScript : MonoBehaviour
         Gizmos.DrawWireSphere(enemyAttackPoint.position, enemyAttackRange);
     }
 
+    public bool checkHealth()
+    {
+        return healthScript.checkHealth();
+    }
 }
