@@ -101,7 +101,8 @@ public class EnemyScript : MonoBehaviour
             }
             audioManager.PlayAtackSound(audioManager.damageSound);
             player.GetComponent<HealthScript>().TakeHit(enemyDamageAttack);
-            
+            player.GetComponent<HealthBarScript>().TakeHit(enemyDamageAttack);
+
         }
     }
 

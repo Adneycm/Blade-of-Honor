@@ -49,6 +49,7 @@ public class ArrowScript : MonoBehaviour
                 playerScript.playerKnockBackDirection = false;
             }
             player.GetComponent<HealthScript>().TakeHit(arrowDamageAttack);
+            player.GetComponent<HealthBarScript>().TakeHit(arrowDamageAttack);
         }
     }
 }
