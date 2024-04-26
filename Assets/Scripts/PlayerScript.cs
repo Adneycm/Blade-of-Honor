@@ -46,7 +46,7 @@ public class PlayerScript : MonoBehaviour
         playerSprite = GetComponent<SpriteRenderer>();
         playerAnimation = GetComponent<Animator>();
         healthScript = GetComponent<HealthScript>();
-        playerAttackPointX = Mathf.Abs(playerAttackPoint.position.x - transform.position.x);
+    playerAttackPointX = Mathf.Abs(playerAttackPoint.position.x - transform.position.x);
     }
 
     void Update()
