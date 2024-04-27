@@ -10,10 +10,16 @@ public class Interactable : MonoBehaviour
     [SerializeField] private KeyCode interactionKey;
     [SerializeField] private UnityEvent interactAction;
     [SerializeField] private Canvas canvasObject;
+    [SerializeField] private GameObject chestLoot;
+    [SerializeField] private Vector3 velocity;
+    private bool interactionHappened;
+
 
     void Start()
     {
         canvasObject.gameObject.SetActive(false);
+        chestLoot.SetActive(false);
+        interactionHappened = false;
     }
 
     void Update()
@@ -24,13 +30,21 @@ public class Interactable : MonoBehaviour
             {
                 interactAction.Invoke();
                 canvasObject.gameObject.SetActive(false);
+                chestLoot.SetActive(true);
+                chestLoot.transform.position = transform.position;
+                Rigidbody2D rb = chestLoot.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    rb.velocity = velocity;
+                }
+                interactionHappened =true;
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !interactionHappened)
         {
             isInRange = true;
             canvasObject.gameObject.SetActive(true);
