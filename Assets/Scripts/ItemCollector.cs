@@ -15,5 +15,10 @@ public class ItemCollector : MonoBehaviour
             countParchment++; // Adds 1 to the parchment count
             parchmentText.text = "x " + countParchment; // Writes quantity of parchments in the screen
         }
+
+        if (collision.gameObject.CompareTag("Potion"))
+        {
+            Destroy(collision.gameObject); // Destroy collected potion
+        }
     }
 }
