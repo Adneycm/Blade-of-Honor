@@ -13,7 +13,7 @@ public class ItemCollector : MonoBehaviour
         {
             Destroy(collision.gameObject); // Destroy collected parchment
             countParchment++; // Adds 1 to the parchment count
-            parchmentText.text = "Parchments: " + countParchment; // Writes quantity of parchments in the screen
+            parchmentText.text = "x " + countParchment; // Writes quantity of parchments in the screen
         }
     }
 }
