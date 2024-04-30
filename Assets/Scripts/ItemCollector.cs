@@ -19,6 +19,7 @@ public class ItemCollector : MonoBehaviour
         if (collision.gameObject.CompareTag("Potion"))
         {
             Destroy(collision.gameObject); // Destroy collected potion
+            Destroy(collision.gameObject.transform.parent.gameObject);
         }
     }
 }
