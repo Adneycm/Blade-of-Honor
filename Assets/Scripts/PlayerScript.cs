@@ -91,7 +91,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, playerVerticalStrength);
-            audioManager.PlayAtackSound(audioManager.jumpSound);
+            audioManager.PlaySound(audioManager.jumpSound);
         }
     }
 
@@ -138,20 +138,6 @@ public class PlayerScript : MonoBehaviour
             playerState = playerStateEnum.idle;
         }
 
-        // Check if the player made an attack by checking the keys
-        if (Input.GetKeyDown("mouse 0"))
-        {
-            playerState = playerStateEnum.attack1;
-            PlayerAttack(playerDamageAttack1);
-            audioManager.PlayAtackSound(audioManager.atackSound1);
-        } 
-        else if (Input.GetKeyDown("mouse 1")) 
-        {
-            playerState = playerStateEnum.attack2;
-            PlayerAttack(playerDamageAttack2);
-            audioManager.PlayAtackSound(audioManager.atackSound2);
-        }
-
         // Check if the player is jumping or falling based on it's vertical velocity
         if (playerRigidbody.velocity.y > .1f)
         {
@@ -160,6 +146,21 @@ public class PlayerScript : MonoBehaviour
         else if (playerRigidbody.velocity.y < -.1f)
         {
             playerState = playerStateEnum.fall;
+        }
+
+
+        // Check if the player made an attack by checking the keys
+        else if (Input.GetKeyDown("mouse 0"))
+        {
+            playerState = playerStateEnum.attack1;
+            PlayerAttack(playerDamageAttack1);
+            audioManager.PlaySound(audioManager.atackSound1);
+        }
+        else if (Input.GetKeyDown("mouse 1"))
+        {
+            playerState = playerStateEnum.attack2;
+            PlayerAttack(playerDamageAttack2);
+            audioManager.PlaySound(audioManager.atackSound2);
         }
 
         // Set the state of the player to the animator
@@ -184,10 +185,10 @@ public class PlayerScript : MonoBehaviour
     {
         if (Input.GetKeyDown("c"))
         {
-            Debug.Log("C key pressed");
             int heal = itemCollector.getPotionHeal();
             healthScript.Heal(heal);
             healthBarScript.Heal(heal);
+            audioManager.PlaySound(audioManager.potionDrink);
         }
     }
 }

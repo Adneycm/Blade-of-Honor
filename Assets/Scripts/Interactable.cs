@@ -13,6 +13,12 @@ public class Interactable : MonoBehaviour
     [SerializeField] private GameObject chestLoot;
     [SerializeField] private Vector3 velocity;
     private bool interactionHappened;
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
 
     void Start()
@@ -28,9 +34,10 @@ public class Interactable : MonoBehaviour
         {
             if (Input.GetKeyDown(interactionKey))
             {
-                interactAction.Invoke();
+                interactAction.Invoke(); // Play chest opening animation
                 canvasObject.gameObject.SetActive(false);
                 chestLoot.SetActive(true);
+                audioManager.PlaySound(audioManager.chest); // Play chest opening sound
                 chestLoot.transform.position = transform.position;
                 Rigidbody2D rb = chestLoot.GetComponent<Rigidbody2D>();
                 if (rb != null)

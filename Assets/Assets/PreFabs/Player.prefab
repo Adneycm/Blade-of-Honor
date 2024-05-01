@@ -226,6 +226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6edadd0763ee04baef8f79e797d671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potion0: {fileID: 0}
+  potion1: {fileID: 0}
+  potion2: {fileID: 0}
+  emptyPotion: {fileID: -1045961790, guid: 0f297dda2da65094dab0637feb0ab39b, type: 3}
   parchmentText: {fileID: 0}
 --- !u!114 &8682613365403792110
 MonoBehaviour:

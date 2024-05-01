@@ -99,7 +99,7 @@ public class EnemyScript : MonoBehaviour
             {
                 playerScript.playerKnockBackDirection = false;
             }
-            audioManager.PlayAtackSound(audioManager.damageSound);
+            audioManager.PlaySound(audioManager.damageSound);
             player.GetComponent<HealthScript>().TakeHit(enemyDamageAttack);
             player.GetComponent<HealthBarScript>().TakeHit(enemyDamageAttack);
 
