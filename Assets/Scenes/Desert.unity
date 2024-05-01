@@ -930,11 +930,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617703495505ef945ac123e854181da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backGroundSource: {fileID: 0}
   sfxSource: {fileID: 603828952}
+  dragonDance: {fileID: 0}
+  lotusPond: {fileID: 0}
+  forest: {fileID: 0}
+  snow: {fileID: 0}
+  desert: {fileID: 0}
+  bossFight: {fileID: 0}
   atackSound1: {fileID: 8300000, guid: 7c254f89102477f4c8b5967ca3f14959, type: 3}
   atackSound2: {fileID: 8300000, guid: 52cfc7bf43a2725408d602fb16e552fe, type: 3}
   jumpSound: {fileID: 8300000, guid: 0b521f2ba7c7df3448d66e6a1889f78b, type: 3}
   damageSound: {fileID: 8300000, guid: a86fd12db0c1b9b45b97ac7042a57f1d, type: 3}
+  lordKuroshiAttack: {fileID: 0}
+  lordKuroshiAttackDistance: {fileID: 0}
+  lordKuroshiHit: {fileID: 0}
+  lordKuroshiDie: {fileID: 0}
+  chest: {fileID: 0}
+  parchment: {fileID: 0}
+  potionCollect: {fileID: 0}
+  potionDrink: {fileID: 0}
 --- !u!4 &510044527
 Transform:
   m_ObjectHideFlags: 0
@@ -38619,7 +38634,7 @@ Transform:
   m_GameObject: {fileID: 1541288233}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.68, y: 2.52, z: 5}
+  m_LocalPosition: {x: 0.9, y: 2.52, z: 5}
   m_LocalScale: {x: 1.0506016, y: 1.0506016, z: 1.0506016}
   m_ConstrainProportionsScale: 0
   m_Children: []
