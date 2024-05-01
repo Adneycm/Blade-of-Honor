@@ -36,6 +36,7 @@ public class EnemyScript : MonoBehaviour
     public bool enemyKnockBackDirection; // true -> right | false -> left
     private enum enemyStateEnum { idle, run, attack }
     AudioManager audioManager;
+    private float timer;
 
 
     private void Awake(){
@@ -53,6 +54,7 @@ public class EnemyScript : MonoBehaviour
 
     void Update()
     {
+        timer += Time.deltaTime;
         if (healthScript.checkHealth())
         {
             distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
@@ -153,6 +155,17 @@ public class EnemyScript : MonoBehaviour
             enemyState = enemyStateEnum.idle;
         }
 
+
+        if (enemyState == enemyStateEnum.attack && timer > 1)
+        {
+            timer = 0;
+            // Checking if the enemy is LordKuroshi to perform attack sound
+            LordKuroshiScript lordKuroshiScript = gameObject.GetComponent<LordKuroshiScript>();
+            if (lordKuroshiScript != null)
+            {
+                audioManager.PlaySound(audioManager.lordKuroshiAttack);
+            }
+        }
 
         // Set the state of the player to the animator
         enemyAnimation.SetInteger("enemyState", (int)enemyState);

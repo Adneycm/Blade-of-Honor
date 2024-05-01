@@ -103,7 +103,14 @@ public class PlayerScript : MonoBehaviour
             enemy.GetComponent<HealthScript>().TakeHit(damage);
             enemyScript = enemy.GetComponent<EnemyScript>();
             enemyScript.enemyKnockBackCounter = enemyScript.enemyKnockBackTotalTime;
-            
+
+            // Check if the enemy is LordKuroshi and if so update it's health bar
+            HealthBarScript healthBarScript = enemy.GetComponent<HealthBarScript>();
+            if (healthBarScript != null)
+            {
+                healthBarScript.TakeHit(damage);
+            }
+
             if (enemy.transform.position.x <= transform.position.x)
             {
                 enemyScript.enemyKnockBackDirection = true;
