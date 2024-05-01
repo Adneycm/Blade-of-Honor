@@ -63772,11 +63772,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 773681121540187398, guid: 0544549d921adfb498900263f21ce403, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.73
+      value: -19.5
       objectReference: {fileID: 0}
     - target: {fileID: 773681121540187398, guid: 0544549d921adfb498900263f21ce403, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.22
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 773681121540187398, guid: 0544549d921adfb498900263f21ce403, type: 3}
       propertyPath: m_LocalPosition.z
@@ -63823,9 +63823,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1120044570}
     - target: {fileID: 8845786631735936892, guid: 0544549d921adfb498900263f21ce403, type: 3}
+      propertyPath: potion
+      value: 
+      objectReference: {fileID: 712878262}
+    - target: {fileID: 8845786631735936892, guid: 0544549d921adfb498900263f21ce403, type: 3}
       propertyPath: parchmentText
       value: 
       objectReference: {fileID: 1456182522}
+    - target: {fileID: 8845786631735936892, guid: 0544549d921adfb498900263f21ce403, type: 3}
+      propertyPath: sprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845786631735936892, guid: 0544549d921adfb498900263f21ce403, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -311430671, guid: 0f297dda2da65094dab0637feb0ab39b, type: 3}
+    - target: {fileID: 8845786631735936892, guid: 0544549d921adfb498900263f21ce403, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -1316294524, guid: 0f297dda2da65094dab0637feb0ab39b, type: 3}
+    - target: {fileID: 8845786631735936892, guid: 0544549d921adfb498900263f21ce403, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 1448518496, guid: 0f297dda2da65094dab0637feb0ab39b, type: 3}
+    - target: {fileID: 8845786631735936892, guid: 0544549d921adfb498900263f21ce403, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 670897276, guid: 0f297dda2da65094dab0637feb0ab39b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -64025,6 +64049,10 @@ PrefabInstance:
       propertyPath: canvasObject
       value: 
       objectReference: {fileID: 1361053299}
+    - target: {fileID: 6345143983116803695, guid: 0d3c2bded356b6f4a8daefaecb983482, type: 3}
+      propertyPath: potion
+      value: 
+      objectReference: {fileID: 712878262}
     - target: {fileID: 6576175149226730286, guid: 0d3c2bded356b6f4a8daefaecb983482, type: 3}
       propertyPath: m_Name
       value: Chest
