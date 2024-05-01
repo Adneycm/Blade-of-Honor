@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
-{
+{    
     [Header("----- Audio Source -----")]
     [SerializeField] private AudioSource backGroundSource; // Audio source to manage background
     [SerializeField] private AudioSource sfxSource; // Audio source to manage sfx
+
 
     [Header("----- Main Menu -----")]
     public AudioClip dragonDance;
@@ -30,20 +32,24 @@ public class AudioManager : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip damageSound;
 
+    [Header("----- Lord Kuroshi -----")]
+    public AudioClip lordKuroshiAttack;
+    public AudioClip lordKuroshiAttackDistance;
+    public AudioClip lordKuroshiHit;
+    public AudioClip lordKuroshiDie;
+
     [Header("----- Enviroment -----")]
     public AudioClip chest;
     public AudioClip parchment;
     public AudioClip potionCollect;
     public AudioClip potionDrink;
 
-    [Header("----- Walk -----")]
-    public AudioClip forestWalk;
-    public AudioClip snowWalk;
-    public AudioClip desertWalk;
+
+    private static AudioManager instance;
 
     private void Start()
     {
-        backGroundSource.clip = dragonDance;
+        backGroundSource.clip = lotusPond;
         backGroundSource.Play();
     }
 
@@ -52,8 +58,27 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(clip);
     }
 
+    public void PlayBackground(AudioClip clip)
+    {
+        backGroundSource.clip = clip;
+        backGroundSource.Play();
+    }
+
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
+
+        // Check if an instance already exists
+        if (instance == null)
+        {
+            // If not, set the instance to this object and mark it as Don't Destroy On Load
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            // If an instance already exists, destroy this object
+            Destroy(gameObject);
+        }
     }
 }
