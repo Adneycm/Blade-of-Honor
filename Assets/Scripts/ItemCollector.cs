@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class ItemCollector : MonoBehaviour
 {
+    private PotionScript potionScript;
     [SerializeField] private Text parchmentText;
     private int countParchment = 0;
+  
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Parchment"))
@@ -18,6 +20,11 @@ public class ItemCollector : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Potion"))
         {
+            potionScript = collision.gameObject.transform.parent.gameObject.GetComponent<PotionScript>();
+            if (potionScript != null)
+            {
+                potionScript.UpdatePotionCanvas();
+            }
             Destroy(collision.gameObject); // Destroy collected potion
             Destroy(collision.gameObject.transform.parent.gameObject);
         }
