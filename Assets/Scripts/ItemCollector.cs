@@ -16,6 +16,12 @@ public class ItemCollector : MonoBehaviour
     private int countParchment = 0;
     private int potionUiIndex = 0;
     private int potionHeal;
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
@@ -30,6 +36,7 @@ public class ItemCollector : MonoBehaviour
             Destroy(collision.gameObject); // Destroy collected parchment
             countParchment++; // Adds 1 to the parchment count
             parchmentText.text = "x " + countParchment; // Writes quantity of parchments in the screen
+            audioManager.PlaySound(audioManager.parchment); // Play parchment collect sound
         }
 
         if (collision.gameObject.CompareTag("Potion"))
@@ -41,6 +48,7 @@ public class ItemCollector : MonoBehaviour
                 potionIventory[potionUiIndex] = potionHeal;
                 potionUiIndex++;
             }
+            audioManager.PlaySound(audioManager.potionCollect); // Play potion collect sound
             Destroy(collision.gameObject); // Destroy collected potion
             Destroy(collision.gameObject.transform.parent.gameObject);
         }
