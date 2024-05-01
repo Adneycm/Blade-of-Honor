@@ -10,7 +10,8 @@ public class PlayerScript : MonoBehaviour
     private SpriteRenderer playerSprite;
     private Animator playerAnimation;
     private HealthScript healthScript;
-
+    private HealthBarScript healthBarScript;
+    private ItemCollector itemCollector;
     private EnemyScript enemyScript;
 
     // Layers
@@ -46,6 +47,8 @@ public class PlayerScript : MonoBehaviour
         playerSprite = GetComponent<SpriteRenderer>();
         playerAnimation = GetComponent<Animator>();
         healthScript = GetComponent<HealthScript>();
+        healthBarScript = GetComponent<HealthBarScript>();
+        itemCollector = GetComponent<ItemCollector>();
     playerAttackPointX = Mathf.Abs(playerAttackPoint.position.x - transform.position.x);
     }
 
@@ -55,6 +58,7 @@ public class PlayerScript : MonoBehaviour
         {
             PlayerMovement();
             PlayerAnimation();
+            PlayerHeal();
         }
     }
 
@@ -174,5 +178,16 @@ public class PlayerScript : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(playerBoxCollider.bounds.center, playerBoxCollider.bounds.size, 0f, Vector2.down, .1f, groundLayer);
+    }
+
+    private void PlayerHeal()
+    {
+        if (Input.GetKeyDown("c"))
+        {
+            Debug.Log("C key pressed");
+            int heal = itemCollector.getPotionHeal();
+            healthScript.Heal(heal);
+            healthBarScript.Heal(heal);
+        }
     }
 }

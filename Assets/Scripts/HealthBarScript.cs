@@ -15,7 +15,7 @@ public class HealthBarScript : MonoBehaviour
         healthBar.fillAmount = health / 100f;
     }
 
-    public void Heal(float heal)
+    public void Heal(int heal)
     {
         health += heal;
         health = Mathf.Clamp(health, 0, 100);

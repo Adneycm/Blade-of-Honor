@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class PotionScript : MonoBehaviour
 {
-    [SerializeField] private Image potion;
+    [SerializeField] private Image potion0;
+    [SerializeField] private Image potion1;
+    [SerializeField] private Image potion2;
     [SerializeField] private Sprite[] sprites;
     private int potionIndex;
 
@@ -23,9 +25,37 @@ public class PotionScript : MonoBehaviour
         }
     }
 
-    public void UpdatePotionCanvas()
+    public int UpdatePotionCanvas(int potionUiIndex)
     {
-        potion.sprite = sprites[potionIndex];
+        if (potionUiIndex == 0)
+        {
+            potion0.sprite = sprites[potionIndex];
+        }
+        else if (potionUiIndex == 1)
+        {
+            potion1.sprite = sprites[potionIndex];
+        }
+        else if (potionUiIndex == 2)
+        {
+            potion2.sprite = sprites[potionIndex];
+        }
+
+
+        if (potionIndex == 0)
+        {
+            return 10;
+        }
+        else if (potionIndex == 1)
+        {
+            return 20;
+        }
+        else if (potionIndex == 2)
+        {
+            return 50;
+        } else
+        {
+            return 100;
+        }
     }
     
 }
