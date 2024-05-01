@@ -56,4 +56,13 @@ public class HealthScript : MonoBehaviour
     {
         return Physics2D.BoxCast(myBoxCollider.bounds.center, myBoxCollider.bounds.size, 0f, Vector2.down, .1f, groundLayer);
     }
+
+    public void Heal(int heal)
+    {
+        currentHealth = currentHealth + heal;
+        if (currentHealth >= 100)
+        {
+            currentHealth = 100;
+        }
+    }
 }
