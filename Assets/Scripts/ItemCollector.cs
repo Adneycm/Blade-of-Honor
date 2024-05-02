@@ -56,22 +56,22 @@ public class ItemCollector : MonoBehaviour
 
         if (collision.gameObject.CompareTag("EndForest"))
         {
-            //SceneManager.LoadSceneAsync("snow");
+            SceneManager.LoadSceneAsync("Transition1_2");
         }
 
         if (collision.gameObject.CompareTag("EndSnow"))
         {
-            //SceneManager.LoadSceneAsync("snow");
+            SceneManager.LoadSceneAsync("TransitionSnowDesert");
         }
 
         if (collision.gameObject.CompareTag("EndDesert"))
         {
-            //SceneManager.LoadSceneAsync("snow");
+            SceneManager.LoadSceneAsync("TransitionDesertBoss");
         }
 
         if (collision.gameObject.CompareTag("EndBossFight"))
         {
-            //SceneManager.LoadSceneAsync("snow");
+            SceneManager.LoadSceneAsync("EndScene");
         }
     }
 

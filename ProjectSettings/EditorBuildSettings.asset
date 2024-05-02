@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossFight.unity
     guid: b47c9819273125148b08003b4662f0a0
+  - enabled: 1
+    path: Assets/Scenes/TransitionSnowDesert.unity
+    guid: 58dbf24c32e033f499979720387578aa
+  - enabled: 1
+    path: Assets/Scenes/TransitionDesertBoss.unity
+    guid: 3be3ab022975deb4292e1d1131718c5b
   m_configObjects: {}
