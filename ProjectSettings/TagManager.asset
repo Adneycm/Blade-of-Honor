@@ -13,6 +13,7 @@ TagManager:
   - EndSnow
   - EndDesert
   - EndBossFight
+  - Dead End
   layers:
   - Default
   - TransparentFX

@@ -32,7 +32,7 @@ public class HealthScript : MonoBehaviour
             myAnimation.SetTrigger("Hit");
         }
 
-        if (currentHealth <= 0 && IsGrounded())
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -69,6 +69,14 @@ public class HealthScript : MonoBehaviour
         if (currentHealth >= 100)
         {
             currentHealth = 100;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    { 
+        if (other.CompareTag("Dead End"))
+        {
+            Die();
         }
     }
 }
