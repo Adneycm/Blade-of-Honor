@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ItemCollector : MonoBehaviour
 {
@@ -51,6 +52,26 @@ public class ItemCollector : MonoBehaviour
             audioManager.PlaySound(audioManager.potionCollect); // Play potion collect sound
             Destroy(collision.gameObject); // Destroy collected potion
             Destroy(collision.gameObject.transform.parent.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("EndForest"))
+        {
+            //SceneManager.LoadSceneAsync("snow");
+        }
+
+        if (collision.gameObject.CompareTag("EndSnow"))
+        {
+            //SceneManager.LoadSceneAsync("snow");
+        }
+
+        if (collision.gameObject.CompareTag("EndDesert"))
+        {
+            //SceneManager.LoadSceneAsync("snow");
+        }
+
+        if (collision.gameObject.CompareTag("EndBossFight"))
+        {
+            //SceneManager.LoadSceneAsync("snow");
         }
     }
 

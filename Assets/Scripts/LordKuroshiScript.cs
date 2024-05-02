@@ -7,6 +7,7 @@ public class LordKuroshiScript : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private float distanceToAttackDistance;
     [SerializeField] private GameObject distanceAttack;
+    [SerializeField] private GameObject rightWall;
     private Animator lordKuroshiAnimator;
     private HealthScript healthScript;
     private float distanceToPlayer;
@@ -41,6 +42,11 @@ public class LordKuroshiScript : MonoBehaviour
             }
 
         }
+    }
+
+    public void DestroyRightWall()
+    {
+        Destroy(rightWall);
     }
 
 }
