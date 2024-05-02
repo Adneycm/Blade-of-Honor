@@ -45,6 +45,12 @@ public class HealthScript : MonoBehaviour
         myBoxCollider.enabled = false;
         myAnimation.SetTrigger("Death");
         isAlive = false;
+
+        LordKuroshiScript lordKuroshiScript = gameObject.GetComponent<LordKuroshiScript>();
+        if (lordKuroshiScript != null)
+        {
+            lordKuroshiScript.DestroyRightWall();
+        }
     }
 
     public bool checkHealth()

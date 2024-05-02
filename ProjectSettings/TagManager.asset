@@ -9,6 +9,10 @@ TagManager:
   - Credits
   - Audio
   - Potion
+  - EndForest
+  - EndSnow
+  - EndDesert
+  - EndBossFight
   layers:
   - Default
   - TransparentFX
