@@ -1106,10 +1106,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3849106553806217147, guid: debde9cc0e194e84abdc2df919b50b8f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1255409444}
     - target: {fileID: 3988841100833869711, guid: debde9cc0e194e84abdc2df919b50b8f, type: 3}
       propertyPath: m_Name
       value: SamuraiArcher (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6730063426577523284, guid: debde9cc0e194e84abdc2df919b50b8f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1255409444}
     - target: {fileID: 6820652800622253246, guid: debde9cc0e194e84abdc2df919b50b8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 189.10849
@@ -1333,6 +1341,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3704683674583155903, guid: 4b4fdc62b1992b6438282b8495e51f94, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1255409444}
     - target: {fileID: 9051607517175171884, guid: 4b4fdc62b1992b6438282b8495e51f94, type: 3}
       propertyPath: m_Name
       value: HeavyBandit (3)
@@ -1350,6 +1362,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3988423573857285794, guid: c37f861b00ebacf47ae81a2942adadf5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1255409444}
     - target: {fileID: 4246092295436461391, guid: c37f861b00ebacf47ae81a2942adadf5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 256.1105
@@ -2227,6 +2243,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3988423573857285794, guid: c37f861b00ebacf47ae81a2942adadf5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1255409444}
     - target: {fileID: 4246092295436461391, guid: c37f861b00ebacf47ae81a2942adadf5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 373.46362
@@ -3204,10 +3224,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3849106553806217147, guid: debde9cc0e194e84abdc2df919b50b8f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1255409444}
     - target: {fileID: 3988841100833869711, guid: debde9cc0e194e84abdc2df919b50b8f, type: 3}
       propertyPath: m_Name
       value: SamuraiArcher (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6730063426577523284, guid: debde9cc0e194e84abdc2df919b50b8f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1255409444}
     - target: {fileID: 6820652800622253246, guid: debde9cc0e194e84abdc2df919b50b8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 205.87325
@@ -4379,10 +4407,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3849106553806217147, guid: debde9cc0e194e84abdc2df919b50b8f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1255409444}
     - target: {fileID: 3988841100833869711, guid: debde9cc0e194e84abdc2df919b50b8f, type: 3}
       propertyPath: m_Name
       value: SamuraiArcher (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6730063426577523284, guid: debde9cc0e194e84abdc2df919b50b8f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1255409444}
     - target: {fileID: 6820652800622253246, guid: debde9cc0e194e84abdc2df919b50b8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 297.16693
@@ -5054,6 +5090,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3988423573857285794, guid: c37f861b00ebacf47ae81a2942adadf5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1255409444}
     - target: {fileID: 4246092295436461391, guid: c37f861b00ebacf47ae81a2942adadf5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 380.9906
@@ -63237,6 +63277,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3704683674583155903, guid: 4b4fdc62b1992b6438282b8495e51f94, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1255409444}
     - target: {fileID: 9051607517175171884, guid: 4b4fdc62b1992b6438282b8495e51f94, type: 3}
       propertyPath: m_Name
       value: HeavyBandit (2)
@@ -64238,11 +64282,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 773681121540187398, guid: 0544549d921adfb498900263f21ce403, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.4
+      value: 417.3
       objectReference: {fileID: 0}
     - target: {fileID: 773681121540187398, guid: 0544549d921adfb498900263f21ce403, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 773681121540187398, guid: 0544549d921adfb498900263f21ce403, type: 3}
       propertyPath: m_LocalPosition.z
