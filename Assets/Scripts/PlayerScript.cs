@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     private Rigidbody2D playerRigidbody;
@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     private HealthBarScript healthBarScript;
     private ItemCollector itemCollector;
     private EnemyScript enemyScript;
+    private GameOver gameOverScript;
 
     // Layers
     [SerializeField] private LayerMask groundLayer;
@@ -35,6 +36,8 @@ public class PlayerScript : MonoBehaviour
     private enum playerStateEnum { idle, run, jump, fall, attack1, attack2 }
 
     AudioManager audioManager;
+    private string currentSceneName;
+
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -48,6 +51,7 @@ public class PlayerScript : MonoBehaviour
         playerAnimation = GetComponent<Animator>();
         healthScript = GetComponent<HealthScript>();
         healthBarScript = GetComponent<HealthBarScript>();
+        gameOverScript = GetComponent<GameOver>();
         itemCollector = GetComponent<ItemCollector>();
     playerAttackPointX = Mathf.Abs(playerAttackPoint.position.x - transform.position.x);
     }
@@ -59,6 +63,9 @@ public class PlayerScript : MonoBehaviour
             PlayerMovement();
             PlayerAnimation();
             PlayerHeal();
+        } else
+        {
+            gameOverScript.ActivateGameOver();
         }
     }
 
