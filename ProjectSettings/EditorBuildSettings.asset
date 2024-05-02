@@ -17,4 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OptionsScene.unity
     guid: 57c260c8d6f91c840a8a15f017b5512e
+  - enabled: 1
+    path: Assets/Scenes/Desert.unity
+    guid: 40313901a29e70942820207b302b882b
+  - enabled: 1
+    path: Assets/Scenes/SnowScene.unity
+    guid: d12f1e0aa631a784a817ee9867bbbfa9
+  - enabled: 1
+    path: Assets/Scenes/Transition1_2.unity
+    guid: 385a4fa8adf495944820e64182d02c75
+  - enabled: 1
+    path: Assets/Scenes/BossFight.unity
+    guid: b47c9819273125148b08003b4662f0a0
   m_configObjects: {}
