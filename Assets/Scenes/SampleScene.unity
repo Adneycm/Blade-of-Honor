@@ -62054,11 +62054,10 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 773681121540187398, guid: 0544549d921adfb498900263f21ce403, type: 3}
   m_PrefabInstance: {fileID: 7421397970292481758}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1255409447
+--- !u!114 &1255409447 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3055510170264742600, guid: 0544549d921adfb498900263f21ce403, type: 3}
+  m_PrefabInstance: {fileID: 7421397970292481758}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255409444}
   m_Enabled: 1
@@ -62066,7 +62065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f30581927892fe4b94eaba656481a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvas: {fileID: 1390359007}
 --- !u!1 &1279047755
 GameObject:
   m_ObjectHideFlags: 0
@@ -65242,6 +65240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3055510170264742600, guid: 0544549d921adfb498900263f21ce403, type: 3}
+      propertyPath: gameOverCanvas
+      value: 
+      objectReference: {fileID: 1390359007}
     - target: {fileID: 3347730578222529041, guid: 0544549d921adfb498900263f21ce403, type: 3}
       propertyPath: healthBar
       value: 
@@ -65265,10 +65267,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1432369186356960329, guid: 0544549d921adfb498900263f21ce403, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1255409447}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0544549d921adfb498900263f21ce403, type: 3}
 --- !u!1001 &8758082539948807283
 PrefabInstance:
