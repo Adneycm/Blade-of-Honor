@@ -168,14 +168,14 @@ public class PlayerScript : MonoBehaviour
 
 
         // Check if the player made an attack by checking the keys
-        else if (Input.GetKeyDown("k") && timer_k >= .5f) //mouse 0
+        else if (Input.GetKeyDown("k") && timer_k >= .1f) //mouse 0
         {
             timer_k = 0;
             playerState = playerStateEnum.attack1;
             PlayerAttack(playerDamageAttack1);
             audioManager.PlaySound(audioManager.atackSound1);
         }
-        else if (Input.GetKeyDown("l") && timer_l >= 1.5f) //mouse 1
+        else if (Input.GetKeyDown("l") && timer_l >= .5f) //mouse 1
         {
             timer_l = 0;
             playerState = playerStateEnum.attack2;
