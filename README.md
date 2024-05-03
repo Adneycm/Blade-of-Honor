@@ -45,9 +45,9 @@ As Hiro reaches the pinnacle of his training, the sinister forces of Lord Kurosh
 
 ### Gameplay images
 
-| ![Image 3](Images/Picture3.jpg) | ![Image 4](Images/Picture4.jpg) | ![Image 3](Images/Picture5.jpg) |
+| ![Image 3](Images/forest.png) | ![Image 4](Images/desert.png) | ![Image 3](Images/snow.png) |
 |----------------------------------|----------------------------------|----------------------------------|
-| ![Image 3](Images/Picture6.jpg) | ![Image 4](Images/Picture7.jpg) | ![Image 3](Images/Picture8.jpg) |
+| ![Image 3](Images/boss.png) | ![Image 4](Images/menu.png) | ![Image 3](Images/gameOver.png) |
 
 
 ### Assets links
