@@ -39884,7 +39884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1398043817}
   controlsMenuUI: {fileID: 1764756585}
-  potionCanva: {fileID: 0}
+  potionCanva: {fileID: 490677048}
 --- !u!114 &1613568608
 MonoBehaviour:
   m_ObjectHideFlags: 0
