@@ -7,6 +7,9 @@ public class controls : MonoBehaviour
 
     public GameObject ControlsUI;
     public GameObject pauseMenuUI;
+
+    public static bool ControlsIsOpen;
+
     // Update is called once per frame
      void Update(){
          CloseControls();
@@ -19,6 +22,7 @@ public class controls : MonoBehaviour
             // Debug.Log("Clicou");
             ControlsUI.SetActive(false);
             pauseMenuUI.SetActive(true);
+            ControlsIsOpen = false;
 
         }
     }
