@@ -1,5 +1,20 @@
 # Blade-of-Honor
 
+<div align="center" style="max-width:68rem;">
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/matheus-1618"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/Adneycm" width="100px;" alt=""/><br /><sub><b>Adney Costa</b></sub></a><br/><a href="https://github.com/Adneycm" title="Adney Costa Moura"></a></td>
+    
+   <td align="center"><a href="https://github.com/DomRuanSuzano"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/DomRuanSuzano" width="100px;" alt=""/><br /><sub><b>Dom Ruan</b></sub></a><br/><a href="https://github.com/DomRuanSuzano" title="Dom Ruan"></a></td>
+
+  <td align="center"><a href="https://github.com/HudsonArauj"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/HudsonArauj" width="100px;" alt=""/><br /><sub><b>Hudson Araujo</b></sub></a><br/><a href="https://github.com/HudsonArauj" title="Hudson Araujo"></a></td>
+
+  <td align="center"><a href="https://github.com/josephkneto"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/josephkneto" width="100px;" alt=""/><br /><sub><b>Joseph Kallas</b></sub></a><br/><a href="https://github.com/josephkneto" title="Joseph Kallas"></a></td>
+
+  </tr>
+</table>
+</div>
+
 Beginning:
 In a land steeped in ancient traditions, you step into the sandals of a young samurai named Hiro. The peaceful village of Akarui has long been under the benevolent protection of the Samurai Council. However, dark forces begin to gather as rumors of a malevolent warlord, Lord Kuroshi, emerge. The village elder, sensing impending danger, calls upon you, Hiro, to undergo the rigorous training of the samurai to protect your home.
 
@@ -15,6 +30,14 @@ As Hiro reaches the pinnacle of his training, the sinister forces of Lord Kurosh
 - Courage (勇, Yuu): "Amidst adversity, courage blazes brightly within the soul of a samurai. Fearlessly facing challenges, a warrior stands unwavering, embracing valor and fortitude. With courage, one forges through darkness to find the light."
 
 - Benevolence (仁, Jin): "The essence of a samurai resonates with benevolence. Embracing compassion and empathy, one extends kindness to all. Through acts of mercy and understanding, the warrior's strength lies not only in skill but in a benevolent heart."
+
+### Inspiration images
+
+| ![Image 3](Images/Picture3.jpg) | ![Image 4](Images/Picture4.jpg) | ![Image 3](Images/Picture5.jpg) |
+|----------------------------------|----------------------------------|----------------------------------|
+| ![Image 3](Images/Picture6.jpg) | ![Image 4](Images/Picture7.jpg) | ![Image 3](Images/Picture8.jpg) |
+
+
 
 
 ### Assets links
