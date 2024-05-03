@@ -66,8 +66,6 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        //DontDestroyOnLoad(gameObject);
-
         // Check if an instance already exists
         if (instance == null)
         {

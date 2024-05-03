@@ -1089,15 +1089,15 @@ MonoBehaviour:
   forest: {fileID: 0}
   snow: {fileID: 0}
   desert: {fileID: 8300000, guid: 2d3138984a44d444299c17939b2af24f, type: 3}
-  bossFight: {fileID: 0}
+  bossFight: {fileID: 8300000, guid: db603100b71bf08449e5710164b022a5, type: 3}
   atackSound1: {fileID: 8300000, guid: 7c254f89102477f4c8b5967ca3f14959, type: 3}
   atackSound2: {fileID: 8300000, guid: 52cfc7bf43a2725408d602fb16e552fe, type: 3}
   jumpSound: {fileID: 8300000, guid: 0b521f2ba7c7df3448d66e6a1889f78b, type: 3}
   damageSound: {fileID: 8300000, guid: c08fe4bf52c38b44ca78400fb5d659a9, type: 3}
-  lordKuroshiAttack: {fileID: 0}
-  lordKuroshiAttackDistance: {fileID: 0}
+  lordKuroshiAttack: {fileID: 8300000, guid: 3588e54b4f59dca4ca6a0999de5f0d91, type: 3}
+  lordKuroshiAttackDistance: {fileID: 8300000, guid: f7a59a13fa51f7048ac1b268c1e531cb, type: 3}
   lordKuroshiHit: {fileID: 0}
-  lordKuroshiDie: {fileID: 0}
+  lordKuroshiDie: {fileID: 8300000, guid: 16c65886a45f0af4591614f1625fda91, type: 3}
   chest: {fileID: 8300000, guid: 69f746ac28e9bcf4b91dc5aa84bbcb4c, type: 3}
   parchment: {fileID: 8300000, guid: 122c2ce8d2289a54c92cf1250297ab26, type: 3}
   potionCollect: {fileID: 8300000, guid: 3a2ac00fa7ee426499add7e00903826c, type: 3}
@@ -1454,7 +1454,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0

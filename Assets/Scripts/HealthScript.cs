@@ -12,6 +12,12 @@ public class HealthScript : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     private bool isAlive = true;
     private int currentHealth;
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
@@ -50,6 +56,7 @@ public class HealthScript : MonoBehaviour
         if (lordKuroshiScript != null)
         {
             lordKuroshiScript.DestroyRightWall();
+            audioManager.PlaySound(audioManager.lordKuroshiDie);  
         }
     }
 
