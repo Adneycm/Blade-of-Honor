@@ -1,4 +1,10 @@
-# Blade-of-Honor
+# [Blade-of-Honor](https://www.example.com)
+
+
+![Game](Assets/Assets/UI/BladeOfHonor.png)
+
+### [Play it clicking here!](https://domruan.itch.io/blade-of-honor)
+
 
 <div align="center" style="max-width:68rem;">
 <table>
@@ -37,7 +43,11 @@ As Hiro reaches the pinnacle of his training, the sinister forces of Lord Kurosh
 |----------------------------------|----------------------------------|----------------------------------|
 | ![Image 3](Images/Picture6.jpg) | ![Image 4](Images/Picture7.jpg) | ![Image 3](Images/Picture8.jpg) |
 
+### Gameplay images
 
+| ![Image 3](Images/Picture3.jpg) | ![Image 4](Images/Picture4.jpg) | ![Image 3](Images/Picture5.jpg) |
+|----------------------------------|----------------------------------|----------------------------------|
+| ![Image 3](Images/Picture6.jpg) | ![Image 4](Images/Picture7.jpg) | ![Image 3](Images/Picture8.jpg) |
 
 
 ### Assets links
