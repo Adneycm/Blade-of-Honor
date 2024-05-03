@@ -101,6 +101,13 @@ public class EnemyScript : MonoBehaviour
             {
                 playerScript.playerKnockBackDirection = false;
             }
+            // Check if the enemy is LordKuroshi and if so update it's health bar
+            LordKuroshiScript lordKuroshiScript = gameObject.GetComponent<LordKuroshiScript>();
+            if (lordKuroshiScript != null)
+            {
+                audioManager.PlaySound(audioManager.lordKuroshiAttack);
+            }
+
             audioManager.PlaySound(audioManager.damageSound);
             player.GetComponent<HealthScript>().TakeHit(enemyDamageAttack);
             player.GetComponent<HealthBarScript>().TakeHit(enemyDamageAttack);

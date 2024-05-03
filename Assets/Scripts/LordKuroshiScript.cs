@@ -12,11 +12,18 @@ public class LordKuroshiScript : MonoBehaviour
     private HealthScript healthScript;
     private float distanceToPlayer;
     private float timer;
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
         healthScript = GetComponent<HealthScript>();
         lordKuroshiAnimator = GetComponent<Animator>();
+        audioManager.PlayBackground(audioManager.bossFight);
     }
 
     void Update()
@@ -38,6 +45,7 @@ public class LordKuroshiScript : MonoBehaviour
                 timer = 0;
                 lordKuroshiAnimator.SetTrigger("DistAttack");
                 Instantiate(distanceAttack, player.transform.position, Quaternion.identity);
+                audioManager.PlaySound(audioManager.lordKuroshiAttackDistance);
                 //Destroy(distanceAttack, 6f);
             }
 

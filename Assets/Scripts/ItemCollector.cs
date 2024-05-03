@@ -72,6 +72,7 @@ public class ItemCollector : MonoBehaviour
         if (collision.gameObject.CompareTag("EndBossFight"))
         {
             SceneManager.LoadSceneAsync("EndScene");
+            audioManager.PlayBackground(audioManager.lotusPond);
         }
     }
 

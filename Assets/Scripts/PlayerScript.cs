@@ -126,7 +126,6 @@ public class PlayerScript : MonoBehaviour
             {
                 enemyScript.enemyKnockBackDirection = false;
             }
-            //enemy.GetComponent<HealthScript>().TakeHit(damage);
         }
     }
 
@@ -164,13 +163,13 @@ public class PlayerScript : MonoBehaviour
 
 
         // Check if the player made an attack by checking the keys
-        else if (Input.GetKeyDown("mouse 0"))
+        else if (Input.GetKeyDown("k")) //mouse 0
         {
             playerState = playerStateEnum.attack1;
             PlayerAttack(playerDamageAttack1);
             audioManager.PlaySound(audioManager.atackSound1);
         }
-        else if (Input.GetKeyDown("mouse 1"))
+        else if (Input.GetKeyDown("l")) //mouse 1
         {
             playerState = playerStateEnum.attack2;
             PlayerAttack(playerDamageAttack2);
