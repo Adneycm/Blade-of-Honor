@@ -37,6 +37,8 @@ public class PlayerScript : MonoBehaviour
 
     AudioManager audioManager;
     private string currentSceneName;
+    private float timer_k;
+    private float timer_l;
 
     private void Awake()
     {
@@ -67,6 +69,9 @@ public class PlayerScript : MonoBehaviour
         {
             gameOverScript.ActivateGameOver();
         }
+
+        timer_k += Time.deltaTime;
+        timer_l += Time.deltaTime;
     }
 
     private void PlayerMovement()
@@ -95,7 +100,7 @@ public class PlayerScript : MonoBehaviour
             playerKnockBackCounter -= Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if ((Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow)) && IsGrounded())
         {
             playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, playerVerticalStrength);
             audioManager.PlaySound(audioManager.jumpSound);
@@ -163,14 +168,16 @@ public class PlayerScript : MonoBehaviour
 
 
         // Check if the player made an attack by checking the keys
-        else if (Input.GetKeyDown("k")) //mouse 0
+        else if (Input.GetKeyDown("k") && timer_k >= .5f) //mouse 0
         {
+            timer_k = 0;
             playerState = playerStateEnum.attack1;
             PlayerAttack(playerDamageAttack1);
             audioManager.PlaySound(audioManager.atackSound1);
         }
-        else if (Input.GetKeyDown("l")) //mouse 1
+        else if (Input.GetKeyDown("l") && timer_l >= 1.5f) //mouse 1
         {
+            timer_l = 0;
             playerState = playerStateEnum.attack2;
             PlayerAttack(playerDamageAttack2);
             audioManager.PlaySound(audioManager.atackSound2);
