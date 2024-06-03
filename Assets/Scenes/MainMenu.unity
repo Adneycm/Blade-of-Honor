@@ -1102,6 +1102,7 @@ MonoBehaviour:
   parchment: {fileID: 8300000, guid: 122c2ce8d2289a54c92cf1250297ab26, type: 3}
   potionCollect: {fileID: 8300000, guid: 3a2ac00fa7ee426499add7e00903826c, type: 3}
   potionDrink: {fileID: 8300000, guid: 38138b5cb930a704e920d4143f125328, type: 3}
+  swordArrow: {fileID: 0}
 --- !u!4 &1023534159
 Transform:
   m_ObjectHideFlags: 0
@@ -1328,6 +1329,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346857648}
   m_CullTransparentMesh: 1
+--- !u!1 &1530764480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1530764485}
+  - component: {fileID: 1530764483}
+  - component: {fileID: 1530764482}
+  - component: {fileID: 1530764481}
+  - component: {fileID: 1530764486}
+  m_Layer: 0
+  m_Name: AdsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1530764481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530764480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b3abc0d99d903488197e371863c44f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  androidAdUnitId: Interstitial_Android
+--- !u!114 &1530764482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530764480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a5a07ddb1d72649b943d9f8fad683e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  androidGameId: 5630625
+  isTesting: 1
+--- !u!114 &1530764483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530764480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4e5b9c677ca87409b4e7c8b9874ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  androidAdUnitId: Banner_Android
+--- !u!4 &1530764485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530764480}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 407.66928, y: -4.4926386, z: 4.116449}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1530764486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530764480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cffef166b0659a4ab5cec60d9fec3e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initializeAds: {fileID: 1530764482}
+  bannerAds: {fileID: 1530764483}
+  interstitialAds: {fileID: 1530764481}
 --- !u!1 &1633999814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,3 +1976,4 @@ SceneRoots:
   - {fileID: 274038133}
   - {fileID: 916749436}
   - {fileID: 1023534159}
+  - {fileID: 1530764485}
