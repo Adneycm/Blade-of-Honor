@@ -61,6 +61,7 @@ public class Interactable : MonoBehaviour
                 Interact = 0.0f;
             }
         }
+        Interact = 0.0f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
