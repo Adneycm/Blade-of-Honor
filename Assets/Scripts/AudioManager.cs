@@ -43,6 +43,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip parchment;
     public AudioClip potionCollect;
     public AudioClip potionDrink;
+    public AudioClip swordArrow;
 
 
     private static AudioManager instance;

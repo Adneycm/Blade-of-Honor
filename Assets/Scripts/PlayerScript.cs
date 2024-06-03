@@ -40,9 +40,50 @@ public class PlayerScript : MonoBehaviour
     private float timer_k;
     private float timer_l;
 
+    [SerializeField] private GameObject particleEffectPrefab;
+    MobileInputs mobileInputs;
+    float direction;
+    float Jump;
+    float WeakAttack;
+    float StrongAttack;
+    float Interact;
+    float Potion;
+
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        mobileInputs = new MobileInputs();
+        mobileInputs.Enable();
+
+        // Player Movement
+        mobileInputs.Input.Move.performed += ctx =>
+        {
+            direction = ctx.ReadValue<float>();
+        };
+
+        // Player Jump
+        mobileInputs.Input.Jump.performed += ctx =>
+        {
+            Jump = ctx.ReadValue<float>();
+        };
+
+        // Player WeakAttack
+        mobileInputs.Input.WeakAttack.performed += ctx =>
+        {
+            WeakAttack = ctx.ReadValue<float>();
+        };
+
+        // Player StrongAttack
+        mobileInputs.Input.StrongAttack.performed += ctx =>
+        {
+            StrongAttack = ctx.ReadValue<float>();
+        };
+
+        // Player Potion
+        mobileInputs.Input.Potion.performed += ctx =>
+        {
+            Potion = ctx.ReadValue<float>();
+        };
     }
     
     void Start()
@@ -80,8 +121,10 @@ public class PlayerScript : MonoBehaviour
         {
             if (!playerAnimation.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
             {
-                playerHorizontalVelocity = Input.GetAxisRaw("Horizontal");
-                playerRigidbody.velocity = new Vector2(playerHorizontalVelocity * playerHorizontalStrength, playerRigidbody.velocity.y);
+                //playerHorizontalVelocity = Input.GetAxisRaw("Horizontal");
+                //playerRigidbody.velocity = new Vector2(playerHorizontalVelocity * playerHorizontalStrength, playerRigidbody.velocity.y);
+                playerHorizontalVelocity = direction;
+                playerRigidbody.velocity = new Vector2(direction * playerHorizontalStrength, playerRigidbody.velocity.y);
             } else
             {
                 playerRigidbody.velocity = new Vector2(0, playerRigidbody.velocity.y);
@@ -100,10 +143,12 @@ public class PlayerScript : MonoBehaviour
             playerKnockBackCounter -= Time.deltaTime;
         }
 
-        if ((Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow)) && IsGrounded())
+        //if ((Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow)) && IsGrounded())
+        if (Jump != 0.0f && IsGrounded())
         {
             playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, playerVerticalStrength);
             audioManager.PlaySound(audioManager.jumpSound);
+            Jump = 0.0f;
         }
     }
 
@@ -112,24 +157,33 @@ public class PlayerScript : MonoBehaviour
         Collider2D[] hittedEnemies = Physics2D.OverlapCircleAll(playerAttackPoint.position, playerAttackRange, enemyLayer);
         foreach(Collider2D enemy in hittedEnemies)
         {
-            enemy.GetComponent<HealthScript>().TakeHit(damage);
-            enemyScript = enemy.GetComponent<EnemyScript>();
-            enemyScript.enemyKnockBackCounter = enemyScript.enemyKnockBackTotalTime;
-
-            // Check if the enemy is LordKuroshi and if so update it's health bar
-            HealthBarScript healthBarScript = enemy.GetComponent<HealthBarScript>();
-            if (healthBarScript != null)
+            if (enemy.gameObject.CompareTag("Arrow"))
             {
-                healthBarScript.TakeHit(damage);
+                Vector2 contactPoint = enemy.transform.position; // Use the position of the enemy
+                Destroy(enemy.gameObject);
+                Instantiate(particleEffectPrefab, contactPoint, Quaternion.identity);
+                audioManager.PlaySound(audioManager.swordArrow);
             }
+            else
+            {
+                enemy.GetComponent<HealthScript>().TakeHit(damage);
+                enemyScript = enemy.GetComponent<EnemyScript>();
+                enemyScript.enemyKnockBackCounter = enemyScript.enemyKnockBackTotalTime;
 
-            if (enemy.transform.position.x <= transform.position.x)
-            {
-                enemyScript.enemyKnockBackDirection = true;
-            }
-            if (enemy.transform.position.x >= transform.position.x)
-            {
-                enemyScript.enemyKnockBackDirection = false;
+                // Check if the enemy is LordKuroshi and if so update it's health bar
+                HealthBarScript healthBarScript = enemy.GetComponent<HealthBarScript>();
+                if (healthBarScript != null)
+                {
+                    healthBarScript.TakeHit(damage);
+                }
+                if (enemy.transform.position.x <= transform.position.x)
+                {
+                    enemyScript.enemyKnockBackDirection = true;
+                }
+                if (enemy.transform.position.x >= transform.position.x)
+                {
+                    enemyScript.enemyKnockBackDirection = false;
+                }
             }
         }
     }
@@ -168,19 +222,23 @@ public class PlayerScript : MonoBehaviour
 
 
         // Check if the player made an attack by checking the keys
-        else if (Input.GetKeyDown("k") && timer_k >= .1f) //mouse 0
+        //else if (Input.GetKeyDown("k") && timer_k >= .1f) //mouse 0
+        else if (WeakAttack != 0.0f && timer_k >= .1f) //mouse 0
         {
             timer_k = 0;
             playerState = playerStateEnum.attack1;
             PlayerAttack(playerDamageAttack1);
             audioManager.PlaySound(audioManager.atackSound1);
+            WeakAttack = 0.0f;
         }
-        else if (Input.GetKeyDown("l") && timer_l >= .5f) //mouse 1
+        //else if (Input.GetKeyDown("l") && timer_l >= .5f) //mouse 1
+        else if (StrongAttack != 0.0f && timer_l >= .5f) //mouse 1
         {
             timer_l = 0;
             playerState = playerStateEnum.attack2;
             PlayerAttack(playerDamageAttack2);
             audioManager.PlaySound(audioManager.atackSound2);
+            StrongAttack = 0.0f;
         }
 
         // Set the state of the player to the animator
@@ -203,12 +261,14 @@ public class PlayerScript : MonoBehaviour
 
     private void PlayerHeal()
     {
-        if (Input.GetKeyDown("c"))
+        //if (Input.GetKeyDown("c"))
+        if (Potion != 0.0f)
         {
             int heal = itemCollector.getPotionHeal();
             healthScript.Heal(heal);
             healthBarScript.Heal(heal);
             audioManager.PlaySound(audioManager.potionDrink);
         }
+        Potion = 0.0f;
     }
 }
