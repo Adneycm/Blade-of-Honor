@@ -1375,7 +1375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   androidGameId: 5630625
-  isTesting: 1
+  isTesting: 0
 --- !u!114 &1530764483
 MonoBehaviour:
   m_ObjectHideFlags: 0
