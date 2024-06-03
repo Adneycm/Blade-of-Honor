@@ -12,6 +12,7 @@ public class GameOver : MonoBehaviour
 
     public void Restart()
     {
+        AdsManager.Instance.interstitialAds.ShowInterstitialAd();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
