@@ -148,8 +148,8 @@ public class PlayerScript : MonoBehaviour
         {
             playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, playerVerticalStrength);
             audioManager.PlaySound(audioManager.jumpSound);
-            Jump = 0.0f;
         }
+        Jump = 0.0f;
     }
 
     private void PlayerAttack(int damage)
