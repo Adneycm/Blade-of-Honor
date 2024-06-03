@@ -15,9 +15,20 @@ public class Interactable : MonoBehaviour
     private bool interactionHappened;
     AudioManager audioManager;
 
+    MobileInputs mobileInputs;
+    float Interact;
+
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
+        mobileInputs = new MobileInputs();
+        mobileInputs.Enable();
+        // Player Interact
+        mobileInputs.Input.Interact.performed += ctx =>
+        {
+            Interact = ctx.ReadValue<float>();
+        };
     }
 
 
@@ -32,7 +43,8 @@ public class Interactable : MonoBehaviour
     {
         if (isInRange)
         {
-            if (Input.GetKeyDown(interactionKey))
+            //if (Input.GetKeyDown(interactionKey))
+            if (Interact != 0.0f)
             {
                 interactAction.Invoke(); // Play chest opening animation
                 canvasObject.gameObject.SetActive(false);
@@ -45,6 +57,8 @@ public class Interactable : MonoBehaviour
                     rb.velocity = velocity;
                 }
                 interactionHappened =true;
+
+                Interact = 0.0f;
             }
         }
     }
