@@ -14,6 +14,7 @@ TagManager:
   - EndDesert
   - EndBossFight
   - Dead End
+  - Arrow
   layers:
   - Default
   - TransparentFX
